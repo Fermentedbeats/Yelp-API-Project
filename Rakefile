@@ -3,6 +3,27 @@ require 'rspec/core/rake_task'
 
 require_relative 'config/application'
 
+namespace :generate do
+  desc "Generate a blank migration"
+  task :migration, [:m_name] do |t, args|
+    timestamp = Time.now.to_s[0..-7].gsub(/[-\s:]/, '')
+    file_name = [timestamp, args[:m_name]].join('_') + '.rb'
+    path = APP_ROOT.join('db','migrate')
+    class_name = ActiveSupport::Inflector.camelize(args[:m_name])
+    unless File.exist?(File.join(path, file_name))
+      File.open(File.join(path, file_name), 'w+') do |f|
+        f.write(<<-RUBY
+class #{class_name} < ActiveRecord::Migration
+  def change
+  end
+end
+RUBY
+          )
+      end
+    end
+  end
+end
+
 desc "create the database"
 task "db:create" do
   puts "Creating file #{DB_PATH} if it doesn't exist..."
