@@ -1,20 +1,28 @@
 
 module View
+  def self.new_line
+    puts "\n\n"
+  end
   def self.welcome
 puts <<-STRING
-========================================================================================================================
-    Welcome to the Aweful Restaurant Suggestion App
-========================================================================================================================
+==================================================================
+    Welcome to the Adequate Restaurant Suggestion App
+==================================================================
+
 STRING
+  puts "What is your name?"
   end
   def self.display_business(business)
     # business_array = Business.all
     # pick = business_array.sample
     puts <<-STRING
-    Here's a crappy Restaurant:
+
+
+    Here's a Restaurant:
 Restaurant:    #{business.name}
-Location:    #{business.location.display_address.join(' ')}
+Location:    #{business.location}
 Rating:    #{business.rating}
+Review:    #{business.review}
     STRING
   end
 
@@ -25,10 +33,27 @@ Rating:    #{business.rating}
     ----italian-------
     italian sandwiches
     ----pizza----------
-Choose one of these. Not that matters.
+    ----mechanics------
+
+Choose one. Or not.
+
     STRING
   end
+
+  def self.render(message)
+    puts message
+  end
+
+  def self.print_searches(username)
+    puts "\n=================================================================="
+    puts "Your previous search results:"
+    user = User.where("name = '#{username}'").first.businesses
+    user.each { |business| puts "#{business.id}. #{business.name}" }
+    puts "=================================================================="
+  end
 end
+
+
 
 
 #  ARGV

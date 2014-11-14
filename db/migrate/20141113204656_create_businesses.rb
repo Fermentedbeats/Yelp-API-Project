@@ -6,8 +6,9 @@ class CreateBusinesses < ActiveRecord::Migration
       t.string :category
       t.string :review
       t.string :rating
+      t.references :user
 
-      t.timestamp
+      t.timestamps
     end
   end
 end
