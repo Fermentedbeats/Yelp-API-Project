@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 module View
   def self.welcome
 puts <<-STRING
@@ -30,7 +30,7 @@ Choose one of these. Not that matters.
     STRING
   end
 end
-=======
+
 
 #  ARGV
 
@@ -56,4 +56,3 @@ p "#{business.review.snippet}"  # extract first sentence.  business.review.split
 p "---" * 30
 p "Head to #{business.name} to get your #{business.categories} on #{business.display_address}"
 
->>>>>>> 10757fbf9c6740c1b9c82dbcc414de51dce97c46
