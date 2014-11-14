@@ -1,0 +1,25 @@
+
+#  ARGV
+
+# p "Welcome to the world's most terrible food app."
+# p "Enter your zip code: "
+# zip = gets.chomp
+# p "What do you want to eat?"
+# category = gets.chomp
+
+
+=begin
+name
+rating
+display_address
+review snippet
+categories
+=end
+
+# display object
+
+p "---" * 30
+p "#{business.review.snippet}"  # extract first sentence.  business.review.split on . & slice [0]?
+p "---" * 30
+p "Head to #{business.name} to get your #{business.categories} on #{business.display_address}"
+
