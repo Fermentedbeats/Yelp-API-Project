@@ -7,20 +7,19 @@ puts <<-STRING
 ========================================================================================================================
 STRING
   end
-  def self.display_business
-    business_array = Business.all
-    pick = business_array.sample
+  def self.display_business(business)
+    # business_array = Business.all
+    # pick = business_array.sample
     puts <<-STRING
     Here's a crappy Restaurant:
-Restaurant:    #{pick.name}
-Location:    #{pick.location}
-Best review we could find:    #{pick.review}
-Rating:    #{pick.rating}
+Restaurant:    #{business.name}
+Location:    #{business.location.display_address.join(' ')}
+Rating:    #{business.rating}
     STRING
   end
 
   def self.food_choices
-       puts "What kind of food do you want?"
+    puts "What kind of food do you want?"
     puts <<-STRING
     ----sandwiches----
     ----italian-------
@@ -51,8 +50,8 @@ categories
 
 # display object
 
-p "---" * 30
-p "#{business.review.snippet}"  # extract first sentence.  business.review.split on . & slice [0]?
-p "---" * 30
-p "Head to #{business.name} to get your #{business.categories} on #{business.display_address}"
+# p "---" * 30
+# p "#{business.review.snippet}"  # extract first sentence.  business.review.split on . & slice [0]?
+# p "---" * 30
+# p "Head to #{business.name} to get your #{business.categories} on #{business.display_address}"
 
